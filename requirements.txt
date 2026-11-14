@@ -1,3 +1,5 @@
 aiohttp
 certifi
 dotenv
+requests
+pymarc

@@ -10,7 +10,7 @@ load_dotenv("private.env")
 
 class Connection:
     def __init__(self):
-        self.okapi_url = os.getenv("API_URL")
+        self.api_url = os.getenv("API_URL")
         self.tenant = os.getenv("API_TENANT")
         self.username = os.getenv("API_USERNAME")
         self.password = os.getenv("API_PASSWORD")
@@ -23,7 +23,7 @@ class Connection:
             return self.token
 
         # Obtener nuevo token
-        url = f"{self.okapi_url}/authn/login"
+        url = f"{self.api_url}/authn/login"
         headers = {
             "Content-Type": "application/json",
             "x-okapi-tenant": self.tenant
@@ -44,7 +44,7 @@ class Connection:
 
     async def _is_token_valid(self, token):
         """Hace una llamada simple protegida para ver si el token sigue siendo válido."""
-        test_url = f"{self.okapi_url}/users?limit=1"  # Endpoint liviano y común
+        test_url = f"{self.api_url}/users?limit=1"  # Endpoint liviano y común
         headers = {
             "x-okapi-token": token,
             "x-okapi-tenant": self.tenant,
