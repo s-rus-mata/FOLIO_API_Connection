@@ -136,6 +136,10 @@ ENV/
 env.bak/
 venv.bak/
 
+# Private Keys
+private.env
+
+
 # Spyder project settings
 .spyderproject
 .spyproject

@@ -1,14 +1,19 @@
 import aiohttp
 import ssl
 import certifi
-import config
+# import config
+import os
+from dotenv import load_dotenv
+
+load_dotenv("private.env")
+
 
 class Connection:
     def __init__(self):
-        self.okapi_url = config.OKAPI_URL
-        self.tenant = config.OKAPI_TENANT
-        self.username = config.USERNAME
-        self.password = config.PASSWORD
+        self.okapi_url = os.getenv("API_URL")
+        self.tenant = os.getenv("API_TENANT")
+        self.username = os.getenv("API_USERNAME")
+        self.password = os.getenv("API_PASSWORD")
         self.token = None
         self.ssl_context = ssl.create_default_context(cafile=certifi.where())
 

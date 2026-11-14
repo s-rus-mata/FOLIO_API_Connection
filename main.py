@@ -1,5 +1,8 @@
 import asyncio
 from connection import Connection
+from dotenv import load_dotenv
+
+load_dotenv("private.env")
 
 # Ejemplo de uso
 if __name__ == "__main__":
